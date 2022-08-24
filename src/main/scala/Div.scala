@@ -1,4 +1,4 @@
-case class Rational(num: Expr, denom: Expr) extends Expr {
+case class Div(num: Expr, denom: Expr) extends Expr {
   override def neval(prec: Int): BigDecimal =
     this.num.neval(prec) / this.denom.neval(prec)
   override def toLatex: String =
@@ -6,3 +6,7 @@ case class Rational(num: Expr, denom: Expr) extends Expr {
   override def toString(): String =
     s"${this.num.toString()}/${this.denom.toString()}"
 }
+
+object Div:
+  def apply(num: Expr, denom: Expr): Div =
+    new Div(num, denom)

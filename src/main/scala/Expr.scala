@@ -18,4 +18,11 @@ trait Expr {
     *   the expression as LaTeX code
     */
   def toLatex: String
+
+  // Now the operator overloads
+
+  def +(rhs: Expr): Expr = Add(this, rhs)
+  def *(rhs: Expr): Expr = Mul(this, rhs)
+  def /(rhs: Expr): Expr = Div(this, rhs)
+  def -(rhs: Expr): Expr = Sub(this, rhs)
 }
